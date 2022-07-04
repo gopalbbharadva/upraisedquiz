@@ -1,13 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter as Router } from "react-router-dom";
+import { QuizContextProvider } from "./Context/QuizContext";
+import { DataContextProvider } from "./Context/DataContext";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <DataContextProvider>
+        <QuizContextProvider>
+          <App />
+        </QuizContextProvider>
+      </DataContextProvider>
+    </Router>
   </React.StrictMode>
 );
 
